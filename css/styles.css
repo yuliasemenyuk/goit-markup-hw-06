@@ -44,6 +44,13 @@ img {
     width: 100%;
     height: auto;
 }
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
 /* Общее для секций */
 .section{
     padding-top: 94px;
@@ -687,9 +694,13 @@ img {
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     outline: none;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-input:focus{
     border-color: var(--accent-color);
+}
+.input-icon{
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-input:focus + .input-icon{
@@ -707,11 +718,50 @@ img {
 
     color: rgba(117, 117, 117, 0.5);
 }
+
+.policy{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1.71;
+}
+.policy-link{
+    color: var(--accent-color);
+}
+
 .checked-icon{
+    border: 1px solid;
     border-color: var(--title-text-color);
+    margin-right: 8px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-check:checked + .policy .checked-icon{
     background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+.modal-submit-button{
+    width: 200px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.87;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: var(--primary-white-color);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+}
+.modal-submit-button:hover,
+.modal-submit-button:focus{
+    background-color: #188CE8;
+
 }
 .modal.is-hidden{
     opacity: 0;
